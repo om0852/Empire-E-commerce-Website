@@ -16,6 +16,7 @@ export const productSlice=createSlice({
         setProduct:(state,action:PayloadAction<IProduct>)=>{
             return action.payload;
     }
+}
 })
 
 export const {setProduct} =productSlice.actions
