@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cardReducer from "@/redux/features/cartSlice"
+import productReducer from "@/redux/features/productSlice"
+import loadingReducer from "@/redux/features/loadingSlice"
 export const store = configureStore({
   reducer: {
-    cardReducer
+    cardReducer,
+    productReducer,
+    loadingReducer
   
 }
 })
