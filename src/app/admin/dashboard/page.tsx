@@ -5,9 +5,10 @@ import Layout from '@/app/admin/layout'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard
-        <Layout/>
-    </div>
+    <>
+    Dashboard
+    </>    // <Layout/>
+    
   )
 }
 
