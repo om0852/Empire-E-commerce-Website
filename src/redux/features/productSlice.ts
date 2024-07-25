@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import {IProduct} from "@/app/admin/dashboard/page"
 const initialState:IProduct={
     _id:"",
     imgSrc:"",
