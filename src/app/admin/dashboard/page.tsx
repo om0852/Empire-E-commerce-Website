@@ -1,5 +1,6 @@
 "use client"
 
+import Popup from '@/components/admin_panel/Popup';
 import ProductRow from '@/components/admin_panel/ProductRow';
 import { setLoading } from '@/redux/features/loadingSlice';
 import { useAppDispatch } from '@/redux/hooks';
@@ -40,17 +41,22 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product: IProduct, index) => (
+            {products.map((product: IProduct, index) => {
+              console.log(product)
+              return(
               <ProductRow key={product._id}
                 srNo={index + 1}
                 setOpenPopup={setOpenPopup}
                 setUpdateTable={setUpdateTable}
                 product={product}
               />
-            ))}
+            )})}
           </tbody>
 
         </table>
+        {openPopup && (
+          <Popup setOpenPopup={setOpenPopup} setUpdateTable={setUpdateTable}/>
+        )}
       </div>
     </>
 
