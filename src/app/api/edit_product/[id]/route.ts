@@ -6,11 +6,12 @@ export async function PUT(req: NextRequest, URLParas: any) {
   try {
     const body = await req.json();
 
-    const { productid } = URLParas.params;
+    const { id } = URLParas.params;
+    console.log(URLParas.params)
     const { name, category, price } = body;
     await connectDb();
 
-    const data = await productModel.findByIdAndUpdate(productid, {
+    const data = await productModel.findByIdAndUpdate(id, {
       name,
       category,
       price,

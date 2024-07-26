@@ -23,7 +23,7 @@ const Popup:React.FC<PropsType> = ({setOpenPopup,setUpdateTable}) => {
         console.log(productData)
         e.preventDefault();
         dispatch(setLoading(true));
-        axios.put(`api/edit_product/${productData._id}`,inputData).then(res=>{makeToast("Product Update Sucessfully");setUpdateTable(prev=>!prev)}).catch(error=>toast.error("Something Went Wrong")).finally(()=>{dispatch(setLoading(false));setOpenPopup(false)})
+        axios.put(`${process.env.NEXT_PUBLIC_URL}/api/edit_product/${productData._id}`,inputData).then(res=>{makeToast("Product Update Sucessfully");setUpdateTable(prev=>!prev)}).catch(error=>toast.error("Something Went Wrong")).finally(()=>{dispatch(setLoading(false));setOpenPopup(false)})
 
     }
   return (
