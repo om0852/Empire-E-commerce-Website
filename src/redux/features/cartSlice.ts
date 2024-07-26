@@ -8,26 +8,26 @@ interface IProduct {
   quantity: number;
 }
 
-const initalState: Array<IProduct> = [];
+const initialState: Array<IProduct> = [];
+
 export const cartSlice = createSlice({
   name: "cartSlice",
-  initialState: [],
+  initialState,
   reducers: {
-    addToCart: (state:IProduct[], action: PayloadAction<IProduct>) => {
-        if(state.findIndex((pro:IProduct)=>pro.id===action.payload.id)===-1){
-            state.push(action.payload);
-        }
-        else{
-            return state.map((item:IProduct)=>{
-                return item.id===action.payload.id?{...item,quantity:item.quantity+1}:item
-            })
-        }
+    addToCart: (state, action: PayloadAction<IProduct>) => {
+      const productIndex = state.findIndex((pro) => pro.id === action.payload.id);
+      if (productIndex === -1) {
+        state.push(action.payload);
+      } else {
+        state[productIndex].quantity += 1;
+      }
     },
-    removeFromCart:(state:IProduct[],action:PayloadAction<string>)=>{
-        const id=action.payload;
-         return state.filter((item:IProduct)=>item.id!=id)
+    removeFromCart: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      return state.filter((item) => item.id !== id);
     }
   },
 });
-export const {addToCart,removeFromCart}=cartSlice.actions
-export default cartSlice.reducer
+
+export const { addToCart, removeFromCart } = cartSlice.actions;
+export default cartSlice.reducer;
