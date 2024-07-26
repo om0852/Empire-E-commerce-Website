@@ -20,7 +20,8 @@ const Dashboard = () => {
   const [openPopup, setOpenPopup] = useState(false);
   const [updateTable, setUpdateTable] = useState(false);
   const dispatch = useAppDispatch();
-
+useEffect(()=>{
+},[updateTable])
   useEffect(() => {
     dispatch(setLoading(true));
     axios.get("/api/get_products").then((res) => setProducts(res.data)).catch(err => console.log(err)).finally(() => dispatch(setLoading(false)));
