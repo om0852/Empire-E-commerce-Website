@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(req: NextRequest, URLParas: any) {
   try {
-    const { id } = URLParas.params.id;
-    console.log(URLParas.params)
+    const { id } = URLParas.params;
+    console.log(id)
     await connectDb();
 
     const data = await productModel.findByIdAndDelete(id);

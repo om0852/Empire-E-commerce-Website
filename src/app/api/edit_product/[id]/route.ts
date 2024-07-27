@@ -7,7 +7,7 @@ export async function PUT(req: NextRequest, URLParas: any) {
     const body = await req.json();
 
     const { id } = URLParas.params;
-    console.log(URLParas.params)
+    console.log(URLParas.params);
     const { name, category, price } = body;
     await connectDb();
 
@@ -16,9 +16,9 @@ export async function PUT(req: NextRequest, URLParas: any) {
       category,
       price,
     });
-    return NextResponse.json({message:"Product updated Successfully"});
+    return NextResponse.json({ message: "Product updated Successfully" });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.json(
       { error, message: "Something went wrong" },
       { status: 400 }
