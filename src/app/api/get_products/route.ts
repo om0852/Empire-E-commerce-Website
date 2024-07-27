@@ -10,6 +10,7 @@ console.log(data)
 return NextResponse.json(data)
     }
     catch(error){
+        console.log(error)
 return NextResponse.json({error,
     message:"something went wrong"
 },{status:400})
